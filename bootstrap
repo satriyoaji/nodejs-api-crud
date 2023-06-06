@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+docker-compose \
+	--project-name thatgirl \
+	--file docker-compose.yml \
+	up --detach --remove-orphans
+
+if [ -f $NVM_DIR/nvm.sh ]
+then
+	. $NVM_DIR/nvm.sh
+	nvm install
+	nvm use
+	npm install -g yarn
+fi
+
+yarn install
