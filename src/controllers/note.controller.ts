@@ -66,7 +66,7 @@ export const getPagedHandler = async (
         try {
             const page = req.query.page || "1";
             const size = req.query.size || "10";
-            const sorting_column = req.query.sorting_column || SortingColumn.CONTENT;
+            const sorting_column = req.query.sorting_column || SortingColumn.TITLE;
             const sorting_order = req.query.sorting_order || 'asc';
             const keyword = req.query.keyword || '';
             const searching_column = req.query.searching_column || [];
@@ -138,12 +138,14 @@ export const createHandler = async (
     ) => {
         try {
             const {
-                content,
+                title,
+                description,
                 image_url,
             } = req.body;
             // const modified_by: string = res.locals.user.id
             const created_note = await create({
-                content,
+                title,
+                description,
                 image_url,
             });
             res.status(201).json({
@@ -167,7 +169,8 @@ export const updateHandler = async (
     ) => {
         try {
             const {
-                content,
+                title,
+                description,
                 image_url,
             } = req.body;
             // const modified_by: string = res.locals.user.id
@@ -175,7 +178,8 @@ export const updateHandler = async (
             const updated_at = new Date();
             const updated_note = await update({
                 id,
-                content,
+                title,
+                description,
                 image_url,
                 updated_at
             });

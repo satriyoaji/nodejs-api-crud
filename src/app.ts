@@ -9,7 +9,7 @@ import cors from 'cors';
 import { AppDataSource } from './utils/data-source';
 import AppError from './utils/appError';
 import validateEnv from './utils/validateEnv';
-import redisClient from './utils/connectRedis';
+// import redisClient from './utils/connectRedis';
 import sls from "serverless-http"
 
 AppDataSource.initialize()
@@ -48,11 +48,11 @@ AppDataSource.initialize()
 
     // HEALTH CHECKER
     app.get('/api/health-checker', async (_, res: Response) => {
-      const message = await redisClient.get('try');
+      // const message = await redisClient.get('try');
 
       res.status(200).json({
         status: 'success',
-        message,
+        // message,
       });
     });
 

@@ -7,8 +7,13 @@ export class Note extends Model {
     id!: string;
 
     @Column()
-    content!: string;
-    
+    title!: string;
+
+    @Column({
+        nullable: true,
+    })
+    description: string;
+
     @Column({
         default: [],
         array: true,
