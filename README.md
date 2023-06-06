@@ -26,6 +26,11 @@
 - Inspect the Data with VS Code PostgreSQL Extension
 
 
+### Dependencies
+make sure that you have installed:
+1. [NodeJS min. v14.17.4](https://nodejs.org/en)
+2. [PostgreSQL Database min. v14](https://www.postgresql.org/download/)
+
 ### Setup
 ```
 yarn install
