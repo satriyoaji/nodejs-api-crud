@@ -35,7 +35,7 @@ yarn install
 ```
 cp .env.example .env
 ```
-Then adjust your own environment like Database, Redis, etc.
+Then adjust your own environment `.env` file like Database, Redis, etc.
 example:
 ```
 POSTGRES_HOST=localhost
