@@ -5,6 +5,10 @@
 ### Features
 
 - List the Node.js API Routes
+- Create the API Routes
+  - Post CRUD Routes
+  - Authentication Routes [TBD]
+  - User CRUD Routes [TBD]
 - User Login and Register Flow with JWT Authentication
 - Defining Base and User Entities with TypeORM
 - Defining Zod Schemas to Validate Request Body
@@ -17,10 +21,6 @@
 - Create Authentication Route Controllers
 - Create User Route Controller
 - Create Authentication Middleware Guard
-- Create the API Routes
-    - Authentication Routes
-    - User CRUD Routes
-    - Post CRUD Routes
 - Add the Routes to the Express Middleware Stack
 - Run Database Migrations with TypeORM
 - Inspect the Data with VS Code PostgreSQL Extension
@@ -30,6 +30,28 @@
 ```
 yarn install
 ```
+
+### Config Environment
+```
+cp .env.example .env
+```
+Then adjust your own environment like Database, Redis, etc.
+example:
+```
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password
+POSTGRES_DB=node_crud
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+REDIS_USERNAME=default
+REDIS_PASSWORD=
+REDIS_DB=0
+```
+
+#### Create your own PostgreSQL DB first (based on your DB name in env).
 
 ## Run Development
 ```
@@ -44,6 +66,7 @@ $ ts-node-dev --respawn --transpile-only --exit-child src/app.ts
 Redis client connect successfully
 Server started on port: 8080
 ```
+So you can access the API by hit URI http://localhost:8080/api (based on port you used)
 
 ## Create Migration
 ```
@@ -58,9 +81,4 @@ yarn migrate:gen && yarn migrate:up
 ## Push Schema Migration
 ```
 yarn migrate:up
-```
-
-## Running all containers
-```
-make dev
 ```

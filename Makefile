@@ -1,11 +1,3 @@
-dev:
-	docker-compose up -d
-
-dev-down:
-	docker-compose down
-
-dev-down-volume:
-	docker-compose down
 
 migrate:
 	rm -rf build && yarn build && yarn typeorm migration:generate -d ./src/utils/data-source.ts
